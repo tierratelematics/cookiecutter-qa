@@ -16,7 +16,7 @@ else:
 
 
 BROWSERSTACK_USERNAME = os.getenv('BROWSERSTACK_USERNAME', "davidemoro2")
-BROWSERSTACK_ACCESS_KEY = os.getenv('BROWSERSTACK_KEY', '')
+BROWSERSTACK_ACCESS_KEY = os.getenv('BROWSERSTACK_ACCESS_KEY', '')
 
 
 @pytest.fixture
