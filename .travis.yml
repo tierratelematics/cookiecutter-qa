@@ -3,14 +3,13 @@ sudo: required
 python: 3.5
 services:
 - docker
-addons:
-  browserstack:
-    username: "davidemoro2"
-    access_key:
-      secure: p4EXh3s/+QyTUOWGaokLh88VKZ7HAs2GOK9GKsl3vPaYr6aTaCqBUbA893tcr+zyx5t6tWequUo3wS/5zWA9QXnMx2OLrU7x1XYArsw4JKvJVD5adQP0/tYlIiqqi0fr4QApmsFXYFWKohbbxV/hDgE83LSPGijJYaUENwA0N6IPYWg5fstyEbMsBViIYeF/fsvieXyLuXnq6Rn4kIMtryXoqQRStT1veyHBcrUxj33Z2jRjPl/HCy+GYJRh9MKLiIIA/cMTR3+1AphrFdNFOFrfGMjsLQwuVoV8Ej4foNvWmG7SW/jAGpL+jnfegVQINhJWH08aDnsh6g9lmYLuMCSmkCXUXUunu6CHxvTVDswiqVmkwUZk5QyA69+n4EdWezBz+kX6s799A5dh0yD0TTzfe3IaGI+MIxAcfhpYFwAOeUdqPCfMOF5nmymcHAJzNx4Ru4VFw4yRSN1a8MxQ5FebMVdudp6ByWg4LNbEJ+Lj7+2jKfIRww9cheO6jOWlOMNioJu/0FIqLYxLAFbpaKoWfiHqyrjBEYAtWEcT5wRWKjQjPYGN9oidSg/F+DEIdCxy1j6hpdyRewl7GnJM/mrf+m3RLhJ+Z3HWsZ5B1AhYZ6BDMmypV60exu/HMWDiV5WSuWkUf4dB5P6wI+GPS+FvY9Dxgw5YY8vd6JcIdUQ=
 env:
-- TOXENV=py27
-- TOXENV=py35
+  matrix:
+  - TOXENV=py27
+  - TOXENV=py35
+  global:
+    BROWSERSTACK_ACCESS_KEY:
+      secure: Qroldws5YkHPyz7/UmHda+1ZZIIp4qYPLUnncEyVa5I6jlYFvp9htHelBFCZvN6JLw6+19080RFZ4lV2379COMOOSiF4Z1GYAO4zpid/aRAGBvyF/8Xoq+yYOVrf3R2l8IdmDur5HWzOPYFmwSLYIgPhvIUxNoInr0jyC3hmemFLNNjJlCkhyvXr4WM0EENDoufrAwJEY3Q95Bqb86s0klphvWDWjCfa10RcrqLYiHNoEBRELNZXgch5VcBRx3dey1VdR5Bu2x0fJHpwB42ui2LbwVhe+Wz0ObOzBhQ/5nHwBvVMgjy2BANzqOv+ri/fPfpkPBKvoPIzGpPByk4zoaRdyyu799OJ3laE213JkcF7Hg7tJKKtR+jW36H0A3JF4Ju1vwFZBhI4w4V47P21kexiv5Gb7j+ehMuVUSBWHBJgEUItP5UUFf3U/6u4FJ4McqJts+RjbQqPpnCn6gx7sGKxaZtkPL4NYhd+DbsI4cSTLOHZ698hIXTxPQqOrBybNSA1YdfTRSpXFLI9DKO3ctT9xuDjsIrlxBAIJaQc0VvBqJYIlGfn6vFybD/gDXL3IkUPWN36WBFfibKXL5/8RRrkytfUft4CAur2oIIgz5nUcaw001QFwrPtJpxDrsycHTSFTEkBhjrXaB0BJx9nvvxcwnFqaSVYLb8DjvVEa6Y=
 install:
 - pip install -U tox
 script:
