@@ -15,8 +15,8 @@ else:
     import imp
 
 
-BROWSERSTACK_USERNAME = "davidemoro2"
-BROWSERSTACK_ACCESS_KEY = os.getenv('BROWSERSTACK_ACCESS_KEY', '')
+BROWSERSTACK_USERNAME = os.getenv('BROWSERSTACK_USERNAME', "davidemoro2")
+BROWSERSTACK_ACCESS_KEY = os.getenv('BROWSERSTACK_KEY', '')
 
 
 @pytest.fixture
