@@ -50,7 +50,7 @@ and bake your new QA package providing some information::
     1 - Click
     2 - No command-line interface
     Choose from 1, 2 [1]: 2
-    base_url [http://tierratelematics.com]: 
+    base_url [http://www.tierratelematics.com]: 
     browserstack_username [USERNAME]: YOUR_BROWSERSTACK_USERNAME_HERE
     browserstack_access_key [ACCESS_KEY]: YOUR_BROWSERSTACK_ACCESS_KEY_HERE
     testrail [y]:
