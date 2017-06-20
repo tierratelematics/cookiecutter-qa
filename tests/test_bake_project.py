@@ -149,7 +149,8 @@ def test_bake_and_run_tests(cookies, default_extra_context):
             cookies,
             extra_context=extra_context) as result:
         assert result.project.isdir()
-        run_inside_dir('make docker-run 2>&1', str(result.project)) == 0
+        run_inside_dir('make docker-run &> /dev/null',
+                       str(result.project)) == 0
         print("test_bake_and_run_tests path", str(result.project))
 
 
@@ -159,7 +160,8 @@ def test_bake_withspecialchars_and_run_tests(cookies, default_extra_context):
     extra_context['full_name'] = 'name "quote" name'
     with bake_in_temp_dir(cookies, extra_context=extra_context) as result:
         assert result.project.isdir()
-        run_inside_dir('make docker-run 2>&1', str(result.project)) == 0
+        run_inside_dir('make docker-run &> /dev/null',
+                       str(result.project)) == 0
 
 
 def test_bake_with_apostrophe_and_run_tests(cookies, default_extra_context):
@@ -168,7 +170,8 @@ def test_bake_with_apostrophe_and_run_tests(cookies, default_extra_context):
     extra_context['full_name'] = "O'connor"
     with bake_in_temp_dir(cookies, extra_context=extra_context) as result:
         assert result.project.isdir()
-        run_inside_dir('make docker-run 2>&1', str(result.project)) == 0
+        run_inside_dir('make docker-run &> /dev/null',
+                       str(result.project)) == 0
 
 
 # # still not implemented, commented
@@ -187,7 +190,8 @@ def test_bake_with_no_testrail_and_run_tests(cookies, default_extra_context):
     extra_context['testrail'] = "n"
     with bake_in_temp_dir(cookies, extra_context=extra_context) as result:
         assert result.project.isdir()
-        run_inside_dir('make docker-run 2>&1', str(result.project)) == 0
+        run_inside_dir('make docker-run &> /dev/null',
+                       str(result.project)) == 0
 
 
 def test_bake_without_author_file(cookies):
