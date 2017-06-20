@@ -4,12 +4,14 @@ python: 3.5
 services:
 - docker
 env:
+  PIPPO=pippo
   BROWSERSTACK_ACCESS_KEY:
     secure: Wcjq2WIAnK60nEpk0E3gyxrJnHahqexGxpQzOPc+f4d87BGevjARDQj2SkHuKpS9gczWMYudCA/CQDNNowfJRFmKR9gZDo6Gtvz0iZiYLhbhZ/+NhRU2FUKptf8lh79FpFyp7wrCHMy5QiaL1Ti5vFrJTfr55CmtTsJpgIp4TsafFlwwHcscW/mClKncQMwsu0EOs6Z2kNc6djHt9SabWR8SvfYLRdofGe+sKheZqSBc3AlEajjjHHPIHZOenLmwXQSgOPCl5hXW0ClzafHV3UgApgbL9Qyeja9ptzn8ppvGjc3hP0Es6Q0+G9mo+9X+5zOPp5B+Db8YA4MU7hJQhYMFHdneHVnYtKCPzkr2coXz74dAr+wAmOCXSfdgmP0U2WkqNC4+hAl9xEgSotPGrdS/g9sRJP04VWlxe6LvZHK4hl7PAEDBPHDYqRe8argxV3gJmXE2tKPyuPFK07KVybyzdu9R1WYe8awXiAqwbRz8WqaTRw3B8wvpih3QeFa8F1+1EoZ0zQHXafOd4Rqoq76s8DCxcilyJDdWO5n/E7/3jSyzXdrFd0GOMV4iXnHS2QJJBY7hBGokbCOn9ZUtUUe/npD3sxvvyQMpkItLwMaBrFSyMZYmq/m6aVUR9YjEim52qxU7xiOkGhGAluPF/VsaNL7+P6l31GKBYK/OsFc=
   matrix:
   - TOXENV=py27
   - TOXENV=py35
 install:
+- echo $PIPPO
 - pip install -U tox
 script:
 - tox
