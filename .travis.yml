@@ -12,4 +12,4 @@ env:
 install:
 - pip install -U tox
 script:
-- tox
+- travis_wait tox
