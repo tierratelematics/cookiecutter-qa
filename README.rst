@@ -62,6 +62,29 @@ As result cookiecutter will create for you a new package.
 so keep in mind that before distributing your project!
 
 
+Advanced (y)
+------------
+
+If you respond ``advanced: **y**`` you get an opinionated stack with a hello world test pytest_, Splinter_, BDD and page objects ready.
+
+
+Advanced (n)
+------------
+If you respond ``advanced: **n**`` you get a basic project with a basic hello world based on Selenium Splinter.
+
+You can see the ``test_basic.py`` contents::
+
+    $ cat project_qa/project_qa/tests/functional/test_basic.py 
+    
+    
+    def test_basic(browser, base_url):
+        browser.visit(base_url)
+        assert 'http://www.tierratelematics.com' in browser.url
+
+This is what you need if you want to familiarize with pytest_, Splinter_ API or if you want create your own setup
+that fits your needs.
+
+
 How to use it
 =============
 
@@ -138,3 +161,5 @@ Sponsored by
 .. _`@audreyr`: https://github.com/audreyr
 .. _`cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
 .. _`@davidemoro`: https://twitter.com/davidemoro
+.. _`Splinter`: https://splinter.readthedocs.io/en/latest/
+.. _`pytest`: https://docs.pytest.org/en/latest/
