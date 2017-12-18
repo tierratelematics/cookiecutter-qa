@@ -183,19 +183,6 @@ def test_bake_and_run_tests_docker(cookies, default_extra_context):
         print("test_bake_and_run_tests path", str(result.project))
 
 
-def test_bake_and_run_tests(
-        cookies, default_tox_command, default_extra_context):
-    extra_context = default_extra_context.copy()
-    with bake_in_temp_dir(
-            cookies,
-            extra_context=extra_context) as result:
-        assert result.project.isdir()
-        run_inside_dir(
-            default_tox_command,
-            str(result.project)) == 0
-        print("test_bake_and_run_tests path", str(result.project))
-
-
 def test_bake_with_no_testrail_and_run_tests(
         cookies, default_tox_command, default_extra_context):
     """Ensure that an without testrail doesn't break things"""
