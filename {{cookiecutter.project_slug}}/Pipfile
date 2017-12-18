@@ -1,0 +1,65 @@
+[[source]]
+
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+
+[dev-packages]
+tox = "*"
+
+
+
+[packages]
+
+alabaster = "*"
+apipkg = "*"
+babel = "*"
+colander = "*"
+configparser = "*"
+coverage = "*"
+docutils = "*"
+execnet = "*"
+funcsigs = "*"
+"glob2" = "*"
+imagesize = "*"
+"iso8601" = "*"
+"jinja2" = "*"
+mako = "*"
+markupsafe = "*"
+mock = "*"
+parse = "*"
+parse-type = "*"
+pbr = "*"
+pluggy = "*"
+py = "*"
+pygments = "*"
+pyparsing = "*"
+pypom = "*"
+pypom-form = "*"
+pytest-pypom-navigation = "*"
+pytest = "*"
+pytest-bdd = "*"
+pytest-cov = "*"
+pytest-html = "*"
+pytest-metadata = "*"
+pytest-repeat = "*"
+pytest-splinter = "*"
+pytest-testrail = "*"
+pytest-travis-fold = "*"
+pytest-variables = "*"
+pytest-xdist = "*"
+pytz = "*"
+pyyaml = "*"
+requests = "*"
+selenium = "*"
+simplejson = "*"
+snowballstemmer = "*"
+sphinx = "*"
+sphinx-rtd-theme = "*"
+splinter = "*"
+translationstring = "*"
+"zope.component" = "*"
+"zope.event" = "*"
+"zope.interface" = "*"
+pytest-play = {ref = "develop", git = "https://github.com/tierratelematics/pytest-play.git", editable = true}

@@ -25,6 +25,23 @@ selenium_grid_url = 'http://{0}:{1}@hub.browserstack.com:80/wd/hub'.format(
 
 
 @pytest.fixture
+def default_tox_command(default_extra_context):
+    return " ".join([
+        "tox",
+        "-epy36",
+        "--",
+        "-vvv",
+        "--splinter-webdriver=remote",
+        "--variables=credentials_template.yml",
+        "--splinter-remote-url={0}".format(
+            default_extra_context['selenium_grid_url']),
+        "--variables=capabilities/os/WIN10.json",
+        "--variables=capabilities/browsers/chrome/CHROME59.json",
+        "--variables=capabilities/resolutions/1280x1024.json",
+    ])
+
+
+@pytest.fixture
 def default_extra_context():
     return {
         'selenium_grid_url': selenium_grid_url,
@@ -153,7 +170,7 @@ def test_bake_without_testrail(cookies):
             assert 'pytest-testrail' not in setup_py_file.read()
 
 
-def test_bake_and_run_tests(cookies, default_extra_context):
+def test_bake_and_run_tests_docker(cookies, default_extra_context):
     extra_context = default_extra_context.copy()
     with bake_in_temp_dir(
             cookies,
@@ -166,15 +183,28 @@ def test_bake_and_run_tests(cookies, default_extra_context):
         print("test_bake_and_run_tests path", str(result.project))
 
 
-def test_bake_with_no_testrail_and_run_tests(cookies, default_extra_context):
+def test_bake_and_run_tests(
+        cookies, default_tox_command, default_extra_context):
+    extra_context = default_extra_context.copy()
+    with bake_in_temp_dir(
+            cookies,
+            extra_context=extra_context) as result:
+        assert result.project.isdir()
+        run_inside_dir(
+            default_tox_command,
+            str(result.project)) == 0
+        print("test_bake_and_run_tests path", str(result.project))
+
+
+def test_bake_with_no_testrail_and_run_tests(
+        cookies, default_tox_command, default_extra_context):
     """Ensure that an without testrail doesn't break things"""
     extra_context = default_extra_context.copy()
     extra_context['testrail'] = "n"
     with bake_in_temp_dir(cookies, extra_context=extra_context) as result:
         assert result.project.isdir()
         run_inside_dir(
-            'make docker-run SELENIUM_GRID_URL={0}'.format(
-                default_extra_context['selenium_grid_url']),
+            default_tox_command,
             str(result.project)) == 0
 
 
