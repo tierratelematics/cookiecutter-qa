@@ -26,7 +26,7 @@ pytest-splinter==2.0.0
 pytest-variables==1.7.1
 PyYAML==4.2b4
 requests==2.21.0
-RestrictedPython==4.0b7
+RestrictedPython==4.0b8
 selenium==3.141.0
 six==1.12.0
 splinter==0.10.0
