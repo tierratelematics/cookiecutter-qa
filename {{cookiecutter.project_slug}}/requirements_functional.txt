@@ -18,7 +18,7 @@ pluggy==0.8.1
 py==1.7.0
 PyPOM==2.2.0
 pypom-form==0.3.1
-pytest<4.0
+pytest==4.2.1
 pytest-bdd==3.0.1
 pytest-play==2.0.2
 pytest-pypom-navigation==2.0.2
